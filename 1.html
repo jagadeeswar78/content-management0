@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Management Tool:</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    // Access the form and register the form submission event
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('#blogForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        // Retrieve the form values
+        var title = document.querySelector('#title').value;
+        var content = document.querySelector('#content').value;
+        var image = document.querySelector('#image').value;
+        var video = document.querySelector('#video').value;
+
+        // Here we can the Display the filled details on the webpage
+        var detailsContainer = document.querySelector('#detailsContainer');
+        detailsContainer.innerHTML = `
+          <h1>Details of BLOG</h1>
+          <h2>Title: ${title}</h2>
+          <p>Content: ${content}</p>
+          <img src="${image}" alt="Blog Image">
+          <p>Video URL: ${video}</p>
+        `;
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="banner">
+  <h1>Content Management Tool</h1>
+  <form id="blogForm">
+    <label for="title">Enter Title Name </label>
+    <input type="text" id="title" name="title" >
+
+    <label for="content">Name of the Content</label>
+    <textarea id="content" name="content" rows="4"></textarea>
+
+    <label for="image">Enter Image url</label>
+    <input type="text" id="image" name="image" >
+
+    <label for="video">Enter the Video URL</label>
+    <input type="text" id="video" name="video">
+
+    <input class="hello" type="submit" value="Create Blog">
+  </form>
+  <div id="detailsContainer"></div>
+</body>
+</html>
